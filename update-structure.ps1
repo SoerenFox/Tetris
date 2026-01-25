@@ -28,8 +28,9 @@ foreach ($dir in $include) {
 $treeText = $tree -join "`n"
 
 $treeBlock = @"
-```text
+```
 $treeText
+```
 "@
 
 $content = Get-Content $readme -Raw

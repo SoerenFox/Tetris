@@ -21,13 +21,14 @@ The skeleton intentionally avoids heavy abstractions or frameworks and focuses o
 ## Structure
 
 <!-- STRUCTURE:START -->
-`	ext
+`
 Assets/
   Audio/
   Images/
 Core/
   Inc/
   Src/
+`
 <!-- STRUCTURE:END -->
 
 This section is generated automatically and reflects the current folder layout of the repository. You can update it by running `update-structure.ps1` in a PowerShell terminal:
@@ -85,3 +86,6 @@ You are free to use, modify, and redistribute it for personal or commercial proj
 This skeleton is intentionally minimal and meant to be extended.
 
 Use it as a foundation, not a framework.
+
+
+
