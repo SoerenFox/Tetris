@@ -21,20 +21,35 @@ The skeleton intentionally avoids heavy abstractions or frameworks and focuses o
 ## Structure
 
 <!-- STRUCTURE:START -->
-`
-Assets/
-  Audio/
-  Images/
-Core/
-  Inc/
-  Src/
-`
+```text
+.
+├── Assets
+│   ├── Audio
+│   │   └── .gitkeep
+│   └── Images
+│       └── .gitkeep
+├── Core
+│   ├── Inc
+│   │   ├── Config.h
+│   │   ├── Game.h
+│   │   └── GameState.h
+│   └── Src
+│       ├── Config.cpp
+│       ├── Game.cpp
+│       └── main.cpp
+├── Scripts
+│   └── update-structure.ps1
+├── .gitignore
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
+```
 <!-- STRUCTURE:END -->
 
 This section is generated automatically and reflects the current folder layout of the repository. You can update it by running `update-structure.ps1` in a PowerShell terminal:
 
 ```bash
-.\update-structure.ps1
+.\Scripts\update-structure.ps1
 ```
 
 ---
@@ -86,6 +101,3 @@ You are free to use, modify, and redistribute it for personal or commercial proj
 This skeleton is intentionally minimal and meant to be extended.
 
 Use it as a foundation, not a framework.
-
-
-
