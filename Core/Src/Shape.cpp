@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 Shape::Shape(const Config& cfg) : size(40), velocity(size) {
-  pos = {0, (float)cfg.getWindowHeight() / 2};
+  pos = {(float)cfg.getWindowHeight() / 2, (float)cfg.getWindowHeight() / 2};
   shape = (ShapeType)(std::rand() % 7);
 }
 
@@ -26,6 +26,10 @@ void Shape::draw() {
         case (ShapeType::T): drawT();
         case (ShapeType::Z): drawZ();
     }
+}
+
+int Shape::getVelocity() {
+    return velocity;
 }
 
 void Shape::drawI() {

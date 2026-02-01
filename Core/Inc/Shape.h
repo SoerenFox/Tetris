@@ -25,4 +25,5 @@ class Shape {
         ~Shape();
         void update();
         void draw();
+        int getVelocity();
 };

@@ -2,12 +2,12 @@
 
 #include "windows.h"
 
-Config::Config() : windowWidth(1008), windowHeight(1008),
+Config::Config() : windowWidth(1080), windowHeight(720),
 targetFPS([]{ 
   HDC h = GetDC(NULL); 
   int r = GetDeviceCaps(h, VREFRESH); 
   ReleaseDC(NULL, h);
-  return r ? r : 60; 
+  return r ? 2 : 60; 
 }()) {}
 
 int Config::getWindowHeight() const {

@@ -4,10 +4,15 @@
 #include "GameState.h"
 #include "Shape.h"
 
+#include <vector>
+#include <memory>
+
 class Game {
   Config cfg;
   GameState gameState;
-  Shape shape;
+  
+  bool isMoving;
+  std::vector<std::unique_ptr<Shape>> shapes;
   
   void gameLoop();
 
