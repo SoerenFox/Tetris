@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(GameSkeleton VERSION 0.1.0 LANGUAGES C CXX)
+project(Tetris VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,28 +17,29 @@ set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(raylib)
 
-add_executable(GameSkeleton
+add_executable(Tetris
   Core/Src/main.cpp
   Core/Src/Config.cpp
   Core/Src/Game.cpp
+  Core/Src/Shape.cpp
 )
 
-target_include_directories(GameSkeleton PRIVATE
+target_include_directories(Tetris PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
 )
 
-target_link_libraries(GameSkeleton PRIVATE raylib)
+target_link_libraries(Tetris PRIVATE raylib)
 
 # Warnings (helps a lot early)
 if (MSVC)
-  target_compile_options(GameSkeleton PRIVATE /W4)
+  target_compile_options(Tetris PRIVATE /W4)
 else()
-  target_compile_options(GameSkeleton PRIVATE -Wall -Wextra -Wpedantic)
+  target_compile_options(Tetris PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
 # Copy Assets next to the exe (so relative asset paths work)
-add_custom_command(TARGET GameSkeleton POST_BUILD
+add_custom_command(TARGET Tetris POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory
           ${CMAKE_CURRENT_SOURCE_DIR}/Assets
-          $<TARGET_FILE_DIR:GameSkeleton>/Assets
+          $<TARGET_FILE_DIR:Tetris>/Assets
 )
