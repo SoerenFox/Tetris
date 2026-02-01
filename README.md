@@ -1,9 +1,8 @@
-﻿# GameSkeleton
+﻿# Tetris
 
-GameSkeleton is a lightweight C++ game project skeleton designed to serve as a solid starting point for new game projects.  
-It is built around **CMake**, **raylib**, and modern **C++**, with a clean and minimal structure that scales well as projects grow.
+Implementation of a simplified version of Tetris using **C++**, **CMake**, **Raylib** and an object oriented programming based style.
 
-The skeleton intentionally avoids heavy abstractions or frameworks and focuses on providing a predictable and maintainable base.
+In work.
 
 ---
 
@@ -11,10 +10,6 @@ The skeleton intentionally avoids heavy abstractions or frameworks and focuses o
 
 - Modern CMake-based build system
 - raylib fetched automatically via CMake (`FetchContent`)
-- Clean separation between game code and assets
-- Simple, extensible game loop structure
-- Designed for out-of-source builds (VS Code CMake Tools friendly)
-- Minimal assumptions, easy to extend
 
 ---
 
@@ -30,13 +25,16 @@ The skeleton intentionally avoids heavy abstractions or frameworks and focuses o
 │       └── .gitkeep
 ├── Core
 │   ├── Inc
+│   │   ├── Colors.h
 │   │   ├── Config.h
 │   │   ├── Game.h
-│   │   └── GameState.h
+│   │   ├── GameState.h
+│   │   └── Shape.h
 │   └── Src
 │       ├── Config.cpp
 │       ├── Game.cpp
-│       └── main.cpp
+│       ├── main.cpp
+│       └── Shape.cpp
 ├── Scripts
 │   └── update-structure.ps1
 ├── .gitignore
@@ -98,6 +96,4 @@ You are free to use, modify, and redistribute it for personal or commercial proj
 
 ## Notes
 
-This skeleton is intentionally minimal and meant to be extended.
-
-Use it as a foundation, not a framework.
+Barely set up project repository.
