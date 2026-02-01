@@ -4,29 +4,28 @@
 #include <iostream>
 #include <string>
 
-Game::Game() : gameState(GameState::PLAYING) {}
+Game::Game() : gameState(GameState::PLAYING), shape(cfg) {
+    srand(static_cast<unsigned int>(time(nullptr))); // random seed
+}
 
 void Game::gameLoop() {
-  BeginDrawing();
-  ClearBackground(BLACK);
+    BeginDrawing();
+    ClearBackground(BLACK);
 
-  EndDrawing();
+    EndDrawing();
 }
 
 void Game::run(){
-  InitWindow(cfg.getWindowWidth(), cfg.getWindowHeight(), "");
-  SetTargetFPS(cfg.getTargetFPS());
+    InitWindow(cfg.getWindowWidth(), cfg.getWindowHeight(), "");
+    SetTargetFPS(cfg.getTargetFPS());
 
-  while (!WindowShouldClose()) {
-    if(IsKeyPressed(KEY_F11)){
-      ToggleBorderlessWindowed();
+    while (!WindowShouldClose()) {
+        switch (gameState) {
+        case GameState::PLAYING:
+            gameLoop();
+            break;
+        case GameState::QUIT:
+            CloseWindow();
+        }
     }
-    switch (gameState) {
-      case GameState::PLAYING:
-        gameLoop();
-        break;
-      case GameState::QUIT:
-        CloseWindow();
-    }
-  }
 }
