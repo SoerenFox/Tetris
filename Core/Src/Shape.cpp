@@ -3,6 +3,7 @@
 #include "Colors.h"
 
 #include <cstdlib>
+#include <iostream>
 
 Shape::Shape(const Config& cfg) : size(40), velocity(size) {
   pos = {(float)cfg.getWindowHeight() / 2, (float)cfg.getWindowHeight() / 2};
@@ -12,8 +13,16 @@ Shape::Shape(const Config& cfg) : size(40), velocity(size) {
 Shape::~Shape() {}
 
 void Shape::update() {
+    handleInput();
     if (pos.y >= GetScreenHeight() - size) velocity = 0;
     pos.y += velocity;
+}
+
+void Shape::handleInput() {
+    if (IsKeyPressed(KEY_RIGHT)) std::cout << "move right" << std::endl;
+    if (IsKeyPressed(KEY_LEFT)) std::cout << "move left" << std::endl;
+    if (IsKeyPressed(KEY_DOWN)) std::cout << "move down" << std::endl;
+    if (IsKeyPressed(KEY_SPACE)) std::cout << "turn clockwise" << std::endl;   
 }
 
 void Shape::draw() {

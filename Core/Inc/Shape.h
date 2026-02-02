@@ -19,6 +19,7 @@ class Shape {
     void drawS();
     void drawT();
     void drawZ();
+    void handleInput();
 
     public:
         Shape(const Config& cfg);
