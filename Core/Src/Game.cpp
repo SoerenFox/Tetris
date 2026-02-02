@@ -5,26 +5,22 @@
 #include <string>
 
 Game::Game() : gameState(GameState::PLAYING), isMoving(false) {
+    shapes.push_back(std::make_unique<Shape>(cfg));
     srand(static_cast<unsigned int>(time(nullptr))); // random seed
 }
 
 void Game::gameLoop() {
-    if (isMoving) {
-        Shape* last = shapes.back().get();
-        last->update();
-        isMoving = (last->getVelocity() > 0);
-    } else {
-        shapes.push_back(std::make_unique<Shape>(cfg));
-        isMoving = true;
-    }
+    // Shape* last = shapes.back().get();
+    // if (last->getVelocity() <= 0) shapes.push_back(std::make_unique<Shape>(cfg));
+    // for (auto& shape : shapes) shape->update();
+
     BeginDrawing();
     ClearBackground(BLACK);
 
-    shapes.back().get()->draw();
+    // for (auto& shape : shapes) shape->draw();
+    shapes.back()->draw();
 
     EndDrawing();
-    static int i = 0;
-    std::cout << i++ << "\t" << shapes.size() << std::endl;
 }
 
 void Game::run(){
